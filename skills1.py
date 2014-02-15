@@ -32,11 +32,27 @@ def long_words(word_list):
 
 # Write a function that finds the smallest element in a list of integers and returns it.
 def smallest(some_list):
-    return None
+    for i in range(len(some_list) - 1):
+        if some_list[i] < some_list[i + 1]:
+            smaller = some_list[i]
+            larger = some_list[i + 1]    
+            some_list[i] = larger
+            some_list[i + 1] = smaller
+        else:
+            i += 1
+    return some_list[-1]
 
 # Write a function that finds the largest element in a list of integers and returns it.
 def largest(some_list):
-    return None
+    for i in range(len(some_list) - 1):
+        if some_list[i] > some_list[i + 1]:
+            smaller = some_list[i + 1]
+            larger = some_list[i]
+            some_list[i] = smaller
+            some_list[i + 1] = larger
+        else:
+            i += 1
+    return some_list[-1]
 
 # Write a function that takes a list of numbers and returns a new list of all those numbers divided by two.
 def halvesies(some_list):
@@ -82,3 +98,5 @@ def average(numbers):
 
 words = ["dog", "cat", "motorcycle", "something","none"]
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print smallest(numbers)
+print largest(numbers)
